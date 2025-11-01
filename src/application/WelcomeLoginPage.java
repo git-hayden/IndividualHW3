@@ -28,17 +28,17 @@ public class WelcomeLoginPage {
 	    
 	    // Button to navigate to the user's respective page based on their role
 	    Button continueButton = new Button("Continue to your Page");
-	    continueButton.setOnAction(a -> {
-	    	String role =user.getRole();
-	    	System.out.println(role);
-	    	
-	    	if(role.equals("admin")) {
-	    		new AdminHomePage().show(primaryStage);
-	    	}
-	    	else if(role.equals("user")) {
-	    		new UserHomePage().show(primaryStage);
-	    	}
-	    });
+    continueButton.setOnAction(a -> {
+    	String role =user.getRole();
+    	System.out.println(role);
+    	
+    	if(role.equals("admin")) {
+    		new AdminHomePage(primaryStage, user.getUserName()).show(primaryStage);
+    	}
+    	else if(role.equals("user")) {
+    		new UserHomePage(primaryStage, user.getUserName()).show(primaryStage);
+    	}
+    });
 	    
 	    // Button to quit the application
 	    Button quitButton = new Button("Quit");
